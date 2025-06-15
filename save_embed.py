@@ -10,10 +10,10 @@ file_list.sort()
 for ll in file_list:
   head, tail = os.path.split(ll)
   output_path = os.path.join(output_dir, tail)
-
-  if os.path.isfile(output_path):
+  
+  """if os.path.isfile(output_path):
     print(f'file {ll} exist, skip to next one')
-    continue
+    continue"""
 
   print('get embed for',ll)
   input_txt = open(ll, encoding="utf8").read()

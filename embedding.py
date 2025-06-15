@@ -24,9 +24,8 @@ def get_embed(text):
 
     result = client.models.embed_content(
         model="text-embedding-004",
-        contents=response.text,
-        config=types.EmbedContentConfig(output_dimensionality=10,
-                                        task_type="SEMANTIC_SIMILARITY")
+        contents=text,
+        config=types.EmbedContentConfig(task_type="QUESTION_ANSWERING")
     )
 
     return result.embeddings[0].values
