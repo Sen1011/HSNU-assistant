@@ -1,7 +1,8 @@
 import os
 
 output_dir = os.path.join(".", "documents", "txts") #"./documents/txts"
-doc: str = open(file="./titan_all.txt").read()
+file = os.path.join(".", "documents", "calendar.txt")
+doc: str = open(file=file).read()
 
 def fixed_size_chunking_with_overlap(text: str, chunk_size: int, overlap: int) -> list[str]:
     chunks:list[str] = []
