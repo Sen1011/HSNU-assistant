@@ -2,17 +2,18 @@ from embedding import *
 from glob import glob
 import os
 
-input_dir = os.path.join("week3&4", "doc_vec", "txts")#"week3&4\\doc_vec\\txts\\"  #doc_vec/txts/
-output_dir = os.path.join("week3&4", "doc_vec", "vecs") #doc_vec/vecs/
+input_dir = os.path.join("documents", "txts") # documents/txts/
+output_dir = os.path.join("documents", "vecs") # documents/vecs/
 file_list = glob(os.path.join(input_dir, "*.txt"))
 file_list.sort()
 
 for ll in file_list:
-  output_path = os.path.join(output_dir, ll.split('/')[-1])
+  head, tail = os.path.split(ll)
+  output_path = os.path.join(output_dir, tail)
 
-  """if os.path.isfile(output_path):
+  if os.path.isfile(output_path):
     print(f'file {ll} exist, skip to next one')
-    continue"""
+    continue
 
   print('get embed for',ll)
   input_txt = open(ll, encoding="utf8").read()

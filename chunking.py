@@ -1,4 +1,6 @@
-output_dir = "doc_vec/"
+import os
+
+output_dir = os.path.join(".", "documents", "txts") #"./documents/txts"
 doc: str = open(file="./titan_all.txt").read()
 
 def fixed_size_chunking_with_overlap(text: str, chunk_size: int, overlap: int) -> list[str]:
@@ -20,5 +22,5 @@ chunks: list[str] = fixed_size_chunking_with_overlap(text=doc, chunk_size=200, o
 
 for i,ch in enumerate(chunks):
     file_name: str = 'chunk_%d.txt'%i
-    with open(file=output_dir+file_name, mode='w') as opt:
+    with open(file=os.path.join(output_dir, file_name), mode='w') as opt:
        _ = opt.write(ch)

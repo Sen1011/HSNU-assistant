@@ -1,7 +1,6 @@
 from embedding import *
 from glob import glob
 from scipy import spatial
-import sys
 
 
 def cos_sim(a,b):
@@ -30,8 +29,8 @@ def semantic_retrieval(question, input_txt_dir, input_vec_dir, candidate=10):
 
 
 if __name__ == '__main__':
-  input_txt_dir = os.path.join(".", "week3&4", "doc_vec", "txts") #doc_vec/txts/
-  input_vec_dir = os.path.join(".", "week3&4", "doc_vec", "vecs") #doc_vec/vecs/
+  input_txt_dir = os.path.join(".", "documents", "txts") #doc_vec/txts/
+  input_vec_dir = os.path.join(".", "documents", "vecs") #doc_vec/vecs/
   question = input("Please insert your question: ")
   search = semantic_retrieval(question, input_txt_dir, input_vec_dir)
   for answer in search:
