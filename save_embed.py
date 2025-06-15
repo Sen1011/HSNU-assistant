@@ -1,4 +1,4 @@
-from embedding_en_new import *
+from embedding import *
 from glob import glob
 import os
 
