@@ -2,8 +2,6 @@ from google import genai
 from semantic_retrieval import semantic_retrieval
 import os
 from time import asctime
-from dotenv import load_dotenv
-load_dotenv()
 
 # Retrieve API key from environment variable
 google_api_key = os.environ.get("GEMINI_API_KEY")

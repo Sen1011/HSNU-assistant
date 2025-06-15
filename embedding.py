@@ -1,8 +1,6 @@
 from google import genai
 from google.genai import types
-import os, time
-from dotenv import load_dotenv
-load_dotenv()
+import os
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
@@ -10,17 +8,6 @@ client = genai.Client(api_key=GEMINI_API_KEY)
 
 def get_embed(text):
     text = text.replace("\n", " ")
-    try:
-        response = client.models.generate_content(
-            model="gemini-2.0-flash",
-            contents=f"請把以下句子精準翻譯成英文: {text}"
-        )
-    except:
-        time.sleep(60)
-        response = client.models.generate_content(
-            model="gemini-2.0-flash",
-            contents=f"請把以下句子精準翻譯成英文: {text}"
-        )
 
     result = client.models.embed_content(
         model="text-embedding-004",
